@@ -1,0 +1,17 @@
+examples.txt
+
+test_queries = [
+    # Clear category queries
+    ("Will I need an umbrella in San Francisco tomorrow?", "weather"),
+    ("Calculate 15% of 2800", "calculator"),
+    ("Who invented the World Wide Web?", "general_knowledge"),
+    ("Suggest a good Italian restaurant in Chicago", "recommendations"),
+    ("Set a reminder to call mom at 7 PM", "personal_assistant"),
+    ("My VPN connection keeps dropping", "technical_support"),
+    
+    # Ambiguous edge cases
+    ("What's 70kg in pounds?", ["calculator", "general_knowledge"]),
+    ("Should I water my plants today?", ["weather", "recommendations"]),
+    ("How do I restart my router?", ["technical_support", "personal_assistant"]),
+    ("Is the stock market open tomorrow?", ["general_knowledge", "personal_assistant"])
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "weather",
+    "utterances": [
+      "What's the weather like today?",
+      "Will it rain tomorrow?",
+      "Is it going to be sunny this weekend?",
+      "What's the temperature outside?",
+      "Do I need an umbrella today?",
+      "How hot will it be tomorrow?",
+      "Is there a storm coming?",
+      "What's the forecast for next week?",
+      "How's the weather in New York?",
+      "Will it snow tonight?"
+    ]
+  },
+  {
+    "name": "calculator",
+    "utterances": [
+      "What's 5 plus 3?",
+      "Calculate 10 multiplied by 4",
+      "What's the square root of 16?",
+      "Solve 3x + 5 = 20",
+      "Convert 10 kilometers to miles",
+      "What's 20% of 50?",
+      "Calculate the area of a circle with radius 5",
+      "What's the derivative of x\u00b2?",
+      "Add 3/4 and 1/2",
+      "Calculate the compound interest on $1000 at 5% for 3 years"
+    ]
+  },
+  {
+    "name": "general_knowledge",
+    "utterances": [
+      "Who was the first president of the United States?",
+      "What is the capital of France?",
+      "When was the Declaration of Independence signed?",
+      "What's the tallest mountain in the world?",
+      "Who wrote Romeo and Juliet?",
+      "What's the chemical symbol for gold?",
+      "How many planets are in our solar system?",
+      "Who painted the Mona Lisa?",
+      "What's the largest ocean on Earth?",
+      "What year did World War II end?"
+    ]
+  },
+  {
+    "name": "recommendations",
+    "utterances": [
+      "Can you recommend a good book to read?",
+      "What movie should I watch tonight?",
+      "What's a good restaurant in Chicago?",
+      "Recommend a podcast about history",
+      "What's a good gift for my mom's birthday?",
+      "Can you suggest some exercises for beginners?",
+      "What's a good place to visit in Europe?",
+      "Recommend a healthy breakfast recipe",
+      "What video game would you recommend?",
+      "Can you suggest a good online course for machine learning?"
+    ]
+  },
+  {
+    "name": "personal_assistant",
+    "utterances": [
+      "Remind me to call mom at 5pm",
+      "Set an alarm for 7am tomorrow",
+      "What's on my calendar for today?",
+      "Add milk to my shopping list",
+      "Schedule a meeting with John for Thursday",
+      "What appointments do I have next week?",
+      "Send a message to Sarah",
+      "Create a to-do list for my project",
+      "What's the status of my Amazon order?",
+      "How much time do I have until my next meeting?"
+    ]
+  },
+  {
+    "name": "technical_support",
+    "utterances": [
+      "My computer won't turn on",
+      "How do I reset my password?",
+      "Why is my internet connection so slow?",
+      "How do I update my operating system?",
+      "My printer is showing an error",
+      "How do I connect my phone to WiFi?",
+      "The app keeps crashing on my phone",
+      "How do I transfer files between devices?",
+      "My screen is frozen and won't respond",
+      "How do I backup my data?"
+    ]
+  }
+]

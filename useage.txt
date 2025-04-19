@@ -1,0 +1,159 @@
+# # Semantic Router Setup and Usage Guide
+
+# ## Environment Setup
+
+# 1. **Clone the repository**
+#    ```bash
+#    git clone https://github.com/MHHamdan/semantic-router.git
+#    cd semantic-router
+#    ```
+
+# 2. **Create a virtual environment**
+#    ```bash
+#    python3 -m venv semantic_router_env
+#    source semantic_router_env/bin/activate
+#    ```
+
+# 3. **Install the package in development mode**
+#    ```bash
+#    pip install -e .
+#    ```
+
+# 4. **Create a .env file for API keys**
+#    ```bash
+#    echo "OPENAI_API_KEY=your_key_here" > .env
+#    ```
+
+# ## Basic Usage Example
+
+# Create a file named `test_semantic_router.py` with the following code:
+
+# ```python
+# # test_semantic_router.py
+# from semantic_router import Route, SemanticRouter
+# from semantic_router.encoders import OpenAIEncoder
+# import os
+# from dotenv import load_dotenv
+# import time
+
+# # Load environment variables from .env file
+# load_dotenv()
+
+# print("Successfully imported Semantic Router!")
+
+# # Get the OpenAI API key from environment variables
+# openai_api_key = os.environ.get("OPENAI_API_KEY")
+
+# if not openai_api_key:
+#     print("Warning: OPENAI_API_KEY not found in environment variables.")
+# else:
+#     try:
+#         # Initialize the encoder with the correct parameter name
+#         encoder = OpenAIEncoder(openai_api_key=openai_api_key)
+        
+#         # Define some routes
+#         weather_route = Route(
+#             name="weather", 
+#             utterances=["What's the weather like?", "Will it rain today?", "Is it going to be sunny?"]
+#         )
+
+#         calculator_route = Route(
+#             name="calculator",
+#             utterances=["Calculate 5+3", "What's 10 multiplied by 4?", "Solve this equation"]
+#         )
+
+#         # Create the router
+#         router = SemanticRouter(encoder=encoder)
+        
+#         # Add routes explicitly
+#         print("Adding routes to the router...")
+#         router.add([weather_route, calculator_route])
+        
+#         # Wait a moment to ensure the index is ready
+#         print("Waiting for index to be ready...")
+#         time.sleep(3)
+        
+#         # Test the router
+#         test_query = "What's the temperature in New York?"
+#         print(f"Routing query: '{test_query}'")
+#         result = router(test_query)
+#         print(f"Query was routed to: {result.name}")
+        
+#     except Exception as e:
+#         print(f"Error when testing router: {e}")
+#         import traceback
+#         traceback.print_exc()
+
+# print("Setup complete!")
+# ```
+
+# Run the script:
+# ```bash
+# python3 test_semantic_router.py
+# ```
+
+# ## How It Works
+
+# 1. **Encoder**: The OpenAIEncoder converts text into semantic vector embeddings.
+
+# 2. **Routes**: Define categories with example utterances that represent different types of queries.
+
+# 3. **Router**: The SemanticRouter matches incoming queries to the most semantically similar route.
+
+# 4. **Process Flow**:
+#    - Example utterances are embedded when routes are added
+#    - New queries are embedded when they come in
+#    - The router compares the query embedding to route embeddings
+#    - The most similar route is selected
+
+# ## Common Issues and Solutions
+
+# 1. **"Index is not ready" Error**:
+#    - Add a delay after adding routes (time.sleep)
+#    - Add routes explicitly using the router.add() method
+
+# 2. **API Key Issues**:
+#    - Make sure the .env file is created
+#    - Use the correct parameter name: openai_api_key (not api_key)
+
+# 3. **Import Errors**:
+#    - Check version compatibility (we're using version 0.1.2)
+#    - Use correct import paths
+
+# ## Extending the System
+
+# 1. **Add More Routes**:
+#    ```python
+#    product_route = Route(
+#        name="product",
+#        utterances=["Tell me about your products", "What do you sell?"]
+#    )
+#    router.add(product_route)
+#    ```
+
+# 2. **Create Handler Functions**:
+#    ```python
+#    def handle_weather(query):
+#        # Process weather queries
+#        return "Weather information for " + query
+
+#    def handle_calculator(query):
+#        # Process calculation queries
+#        return "Calculation result for " + query
+   
+#    # Routing logic
+#    result = router(user_query)
+#    if result.name == "weather":
+#        response = handle_weather(user_query)
+#    elif result.name == "calculator":
+#        response = handle_calculator(user_query)
+#    ```
+
+# 3. **Add Confidence Thresholds**:
+#    ```python
+#    result = router(query)
+#    if result.score > 0.7:  # Check if implementation provides score
+#        print(f"High confidence match: {result.name}")
+#    else:
+#        print("No confident match found")
+#    ```
